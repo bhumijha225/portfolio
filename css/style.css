@@ -84,7 +84,10 @@ h1, h2, h3, h4, h5, h6 {
 .sub-heading-lg { font-size: clamp(28px, 3vw, 36px); line-height: 1.30; }
 .sub-heading { font-size: clamp(24px, 2.5vw, 32px); line-height: 1.10; }
 .sub-heading-sm { font-size: 25px; line-height: 1.20; }
-.feature-title { font-size: 21px; line-height: 1.20; }
+.feature-title { 
+  display: none; /* Removed as per user request to drop 'boxes' */
+}
+/* .project-card:hover .feature-title { ... } removed */
 
 .body-serif { font-family: var(--font-serif); font-size: 17px; line-height: 1.60; color: var(--olive-gray); }
 .body-large { font-size: 20px; line-height: 1.60; color: var(--olive-gray); }
@@ -311,14 +314,25 @@ header {
   display: flex;
   flex-direction: column;
   height: 100%;
+  padding: 48px 32px; /* Increased top padding since the box is gone */
 }
-.project-img {
-  background-color: var(--warm-sand);
-  height: 200px;
-  border-radius: 12px;
-  margin-bottom: 24px;
+/* .project-img removed */
+.project-title { 
+  margin-bottom: 20px; 
+  font-family: var(--font-serif) !important;
+  font-size: clamp(32px, 4vw, 44px) !important;
+  line-height: 1.1;
+  font-weight: 700;
 }
-.project-title { margin-bottom: 12px; }
+.project-title a {
+  color: var(--anthropic-near-black);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.project-title a:hover {
+  color: var(--terracotta-brand);
+  text-decoration: underline;
+}
 .project-desc { flex-grow: 1; margin-bottom: 24px; }
 .project-tags { display: flex; gap: 8px; flex-wrap: wrap; }
 .tag {
